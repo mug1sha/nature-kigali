@@ -126,7 +126,66 @@ export default function Home() {
 
       <section className="closing section-pad"><span className="closing-mark"><Leaf size={27}/></span><div className="section-kicker">A WARM WELCOME AWAITS</div><h2>Stay close to nature.<br/><em>Feel at home.</em></h2><button className="button button-dark" onClick={()=>setBookingOpen(true)}>Start planning your stay <ArrowUpRight size={16}/></button></section>
 
-      <footer className="footer"><a href="#" className="brand brand-footer"><span className="brand-mark"><Leaf size={20}/></span><span><strong>NATURE</strong><small>KIGALI</small></span></a><span>KG 515 Street, Nyarutarama · Kigali, Rwanda</span><span>© {new Date().getFullYear()} NATURE KIGALI</span><a href={WA} target="_blank" rel="noreferrer">SAY HELLO <ArrowUpRight size={14}/></a></footer>
+      <footer className="footer-new">
+        {/* Top — large editorial statement */}
+        <div className="footer-hero">
+          <div className="footer-leaf-bg"><Leaf size={320}/></div>
+          <p className="footer-eyebrow">NATURE KIGALI · NYARUTARAMA</p>
+          <h2 className="footer-headline">A place that<br/><em>stays with you.</em></h2>
+          <button className="button button-light footer-cta" onClick={()=>setBookingOpen(true)}>
+            Plan your stay <ArrowUpRight size={16}/>
+          </button>
+        </div>
+
+        {/* Middle — columns */}
+        <div className="footer-cols">
+          <div className="footer-brand-col">
+            <a href="#" className="brand brand-footer" aria-label="Nature Kigali home">
+              <span className="brand-mark"><Leaf size={20}/></span>
+              <span><strong>NATURE</strong><small>KIGALI</small></span>
+            </a>
+            <p className="footer-tagline">A boutique garden hotel in the heart of Nyarutarama, Kigali — where the city slows down and nature takes over.</p>
+          </div>
+
+          <div className="footer-col">
+            <span className="footer-col-title">Explore</span>
+            <nav className="footer-nav">
+              <a href="#stay">Stay</a>
+              <a href="#dine">Dine</a>
+              <a href="#nature">Nature & Birding</a>
+              <a href="#gather">Events</a>
+              <a href="#visit">Find us</a>
+            </nav>
+          </div>
+
+          <div className="footer-col">
+            <span className="footer-col-title">Contact</span>
+            <div className="footer-contact">
+              <span><MapPin size={13}/> KG 515 Street, Nyarutarama<br/>Kigali, Rwanda</span>
+              <a href="tel:+250787396666"><Phone size={13}/> +250 787 396 666</a>
+              <a href={WA} target="_blank" rel="noreferrer"><MessageCircle size={13}/> +250 783 611 493</a>
+            </div>
+          </div>
+
+          <div className="footer-col">
+            <span className="footer-col-title">Enquire</span>
+            <p className="footer-enquire-text">Ready to visit? Our team is happy to help with availability and reservations.</p>
+            <a href={WA} target="_blank" rel="noreferrer" className="footer-wa-btn">
+              Message us on WhatsApp <ArrowUpRight size={13}/>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="footer-bar">
+          <span>© {new Date().getFullYear()} Nature Kigali. All rights reserved.</span>
+          <span className="footer-bar-divider"/>
+          <span>KG 515 St · Nyarutarama · Kigali · Rwanda</span>
+          <a href={WA} target="_blank" rel="noreferrer" className="footer-bar-link">
+            Say hello <ArrowUpRight size={12}/>
+          </a>
+        </div>
+      </footer>
 
       {bookingOpen && <div className="modal-backdrop" onClick={()=>setBookingOpen(false)}><div className="booking-modal" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setBookingOpen(false)} aria-label="Close"><X/></button><div className="section-kicker">LET'S PLAN SOMETHING GOOD</div><h2>Your stay,<br/><em>your pace.</em></h2><p>Share a few details and our team can help with availability and the best way to plan your visit.</p><label>Arrival date<input type="date" value={arrival} onChange={e=>setArrival(e.target.value)}/></label><label>Departure date<input type="date" value={departure} min={arrival || undefined} onChange={e=>setDeparture(e.target.value)}/></label><label>Guests<select value={guests} onChange={e=>setGuests(e.target.value)}><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><button className="button button-dark full-button" onClick={requestBooking}>Continue on WhatsApp <ArrowUpRight size={16}/></button><small className="modal-note">Demo enquiry interface · Availability is confirmed directly by Nature Kigali.</small></div></div>}
 
